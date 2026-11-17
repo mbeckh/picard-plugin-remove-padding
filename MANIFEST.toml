@@ -1,0 +1,18 @@
+uuid = "d4eb2338-b72f-4266-ba43-5980b154f769"
+name = "Remove Padding"
+description = "Removes padding in ID3v2 tags."
+api = ["3.0"]
+authors = ["Michael Beckh"]
+maintainers = ["Michael Beckh"]
+license = "Apache-2.0"
+license_url = "https://www.apache.org/licenses/LICENSE-2.0"
+long_description = """Removes padding in ID3v2 tags.
+
+The plugin runs as a file post save processor and adds a context menu action.
+Settings for ID3v2 version, IDv1 tags and preserving file timestamps are respected.
+"""
+categories = ["other"]
+homepage = "https://github.com/mbeckh/picard-plugin-remove-padding"
+report_bugs_to = "https://github.com/mbeckh/picard-plugin-remove-padding/issues"
+min_python_version = "3.12"
+source_locale = "en"
