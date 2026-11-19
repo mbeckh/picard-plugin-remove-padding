@@ -23,7 +23,7 @@ from typing import override
 
 from mutagen.id3 import ID3
 
-from picard.file import FileIdentity
+from picard.metadata import Metadata
 from picard.plugin3.api import (
     BaseAction,
     DebugOpt,
@@ -71,8 +71,11 @@ def remove_padding(api: PluginApi, file: File) -> None:
 
     st_after = filepath.stat()
 
-    file._file_identity = FileIdentity(filepath)
-    file._update_filesystem_metadata(file.orig_metadata)
+    # read back new file metadata
+    fs_metadata = Metadata()
+    file._update_filesystem_metadata(fs_metadata)
+    file.orig_metadata.update(fs_metadata)
+    file.metadata.update(fs_metadata)
 
     if st_after.st_size > st.st_size:
         api.logger.error(
